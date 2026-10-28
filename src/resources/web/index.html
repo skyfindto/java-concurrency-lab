@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0e1117">
+  <title>Java 并发 · 知识库与观测台</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <a class="brand" href="#/demos" aria-label="Java 并发知识库与观测台首页">
+        <span class="brand-mark" aria-hidden="true">
+          <i></i><i></i><i></i>
+        </span>
+        <span class="brand-text">
+          <strong>Java 并发</strong>
+          <span class="brand-sep">·</span>
+          <span class="brand-sub">知识库与观测台</span>
+        </span>
+      </a>
+
+      <nav id="mainTabs" class="tabs" aria-label="主导航">
+        <a class="tab" data-route="demos" href="#/demos">用例库</a>
+        <a class="tab" data-route="pools" href="#/pools">线程池观测</a>
+        <a class="tab" data-route="threads" href="#/threads">线程与死锁</a>
+        <a class="tab" data-route="lab" href="#/lab">排障演练场</a>
+        <a class="tab" data-route="dump" href="#/dump">jstack 分析</a>
+      </nav>
+
+      <div id="jvmCapsule" class="jvm-capsule" aria-label="JVM 实时指标">
+        <span class="live-dot" aria-hidden="true"></span>
+        <span class="jvm-item" title="进程 CPU 使用率">
+          <span class="jvm-label">CPU</span>
+          <strong id="jvmCpu">--</strong>
+        </span>
+        <span class="jvm-divider" aria-hidden="true"></span>
+        <span class="jvm-item" title="堆内存已用 / 最大">
+          <span class="jvm-label">堆</span>
+          <strong id="jvmHeap">-- / --</strong>
+        </span>
+        <span class="jvm-divider" aria-hidden="true"></span>
+        <span class="jvm-item" title="存活线程数">
+          <span class="jvm-label">线程</span>
+          <strong id="jvmThreads">--</strong>
+        </span>
+      </div>
+    </header>
+
+    <div id="errorBar" class="error-bar" role="alert" hidden>
+      <span class="error-symbol" aria-hidden="true">⚠</span>
+      <span id="errorText" class="error-text"></span>
+      <button id="errorClose" class="error-close" type="button" aria-label="关闭错误提示">关闭</button>
+    </div>
+
+    <main id="view" class="view"></main>
+  </div>
+
+  <noscript>
+    <div class="noscript">此观测台需要启用 JavaScript 才能运行。</div>
+  </noscript>
+  <script defer src="/app.js"></script>
+</body>
+</html>
